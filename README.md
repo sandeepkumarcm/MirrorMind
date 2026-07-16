@@ -14,9 +14,9 @@
 
 ## 🎬 Demo Video
 
-[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/LGOjw2AxfDY)
 
-▶️ **[Watch Full Demo on YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)**
+▶️ **[Watch Full Demo on YouTube](https://youtu.be/LGOjw2AxfDY)**
 
 ---
 
