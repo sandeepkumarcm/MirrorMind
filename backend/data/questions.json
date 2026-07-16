@@ -1,0 +1,356 @@
+[
+  {
+    "question": "What is the difference between a list and a tuple in Python?",
+    "category": "Python",
+    "difficulty": "Easy",
+    "ideal_answer": "Lists are mutable, meaning their elements can be changed after creation, while tuples are immutable. Lists use square brackets and tuples use parentheses. Tuples are generally faster and used for fixed collections of data, while lists are used for collections that may change.",
+    "keywords": ["mutable", "immutable", "list", "tuple", "square brackets", "parentheses", "performance"]
+  },
+  {
+    "question": "Explain the difference between deep copy and shallow copy in Python.",
+    "category": "Python",
+    "difficulty": "Medium",
+    "ideal_answer": "A shallow copy creates a new object but inserts references to the same nested objects found in the original. A deep copy creates a new object and recursively copies all nested objects, so changes to the copy don't affect the original. Python's copy module provides copy() for shallow and deepcopy() for deep copies.",
+    "keywords": ["shallow copy", "deep copy", "copy module", "reference", "nested objects", "mutability"]
+  },
+  {
+    "question": "What are Python decorators and how do they work?",
+    "category": "Python",
+    "difficulty": "Medium",
+    "ideal_answer": "A decorator is a function that takes another function as input and extends or modifies its behavior without changing its source code. Decorators are applied using the @decorator_name syntax above a function definition. They're commonly used for logging, access control, and timing functions.",
+    "keywords": ["decorator", "higher-order function", "wrapper", "@syntax", "closures", "function modification"]
+  },
+  {
+    "question": "What is the Global Interpreter Lock (GIL) in Python?",
+    "category": "Python",
+    "difficulty": "Hard",
+    "ideal_answer": "The GIL is a mutex that allows only one thread to execute Python bytecode at a time in CPython, even on multi-core systems. This means Python threads can't achieve true parallelism for CPU-bound tasks. Multiprocessing is often used instead to bypass the GIL for CPU-heavy work.",
+    "keywords": ["GIL", "mutex", "CPython", "threading", "multiprocessing", "parallelism", "concurrency"]
+  },
+  {
+    "question": "What is the difference between *args and **kwargs?",
+    "category": "Python",
+    "difficulty": "Easy",
+    "ideal_answer": "*args allows a function to accept any number of positional arguments as a tuple. **kwargs allows a function to accept any number of keyword arguments as a dictionary. Both are used when the number of inputs to a function isn't known in advance.",
+    "keywords": ["args", "kwargs", "positional arguments", "keyword arguments", "tuple", "dictionary", "variadic"]
+  },
+  {
+    "question": "Explain list comprehensions and give an example use case.",
+    "category": "Python",
+    "difficulty": "Easy",
+    "ideal_answer": "List comprehensions provide a concise way to create lists using a single line of code instead of a for loop. The syntax is [expression for item in iterable if condition]. They're commonly used to transform or filter data, such as squaring all even numbers in a list.",
+    "keywords": ["list comprehension", "iterable", "syntax", "filter", "map", "concise", "for loop"]
+  },
+  {
+    "question": "What are Python generators and how do they differ from regular functions?",
+    "category": "Python",
+    "difficulty": "Medium",
+    "ideal_answer": "Generators are functions that use the yield keyword to return values one at a time, pausing execution between each yield instead of returning all values at once. This makes them memory-efficient for large datasets since values are computed lazily. Regular functions execute completely and return once.",
+    "keywords": ["generator", "yield", "lazy evaluation", "memory efficiency", "iterator", "state"]
+  },
+  {
+    "question": "What is the difference between == and is in Python?",
+    "category": "Python",
+    "difficulty": "Easy",
+    "ideal_answer": "== checks for value equality, meaning it compares whether two objects have the same content. is checks for identity, meaning it compares whether two variables point to the exact same object in memory. Two equal values can still be different objects.",
+    "keywords": ["equality", "identity", "==", "is", "memory", "object reference"]
+  },
+  {
+    "question": "What are Python's context managers and the 'with' statement used for?",
+    "category": "Python",
+    "difficulty": "Medium",
+    "ideal_answer": "Context managers handle setup and teardown of resources automatically, most commonly used with the 'with' statement for file handling or database connections. They implement __enter__ and __exit__ methods, ensuring resources are properly released even if an exception occurs.",
+    "keywords": ["context manager", "with statement", "__enter__", "__exit__", "resource management", "exception handling"]
+  },
+  {
+    "question": "What is the difference between a shallow module-level variable and instance variable in a class?",
+    "category": "Python",
+    "difficulty": "Medium",
+    "ideal_answer": "A class-level (or 'static') variable is shared across all instances of a class and defined directly inside the class body. An instance variable is specific to each object and typically defined inside __init__ using self. Changing a class variable affects all instances unless overridden at the instance level.",
+    "keywords": ["class variable", "instance variable", "self", "__init__", "shared state", "object-oriented programming"]
+  },
+
+  {
+    "question": "What is the difference between INNER JOIN and LEFT JOIN in SQL?",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "ideal_answer": "INNER JOIN returns only the rows that have matching values in both tables. LEFT JOIN returns all rows from the left table and matched rows from the right table, filling unmatched columns with NULL. LEFT JOIN is used when you need to preserve all records from one side regardless of a match.",
+    "keywords": ["INNER JOIN", "LEFT JOIN", "matching rows", "NULL", "table relationships"]
+  },
+  {
+    "question": "What is a primary key and how is it different from a foreign key?",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "ideal_answer": "A primary key uniquely identifies each record in a table and cannot contain NULL values. A foreign key is a column that references the primary key of another table, establishing a relationship between the two tables. Foreign keys enforce referential integrity across tables.",
+    "keywords": ["primary key", "foreign key", "unique identifier", "referential integrity", "relationships"]
+  },
+  {
+    "question": "What is the difference between WHERE and HAVING clauses?",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "ideal_answer": "WHERE filters individual rows before any grouping occurs and cannot use aggregate functions. HAVING filters groups after a GROUP BY clause and is used specifically with aggregate functions like COUNT or SUM. HAVING is applied after aggregation, WHERE before.",
+    "keywords": ["WHERE", "HAVING", "GROUP BY", "aggregate functions", "filtering", "row-level vs group-level"]
+  },
+  {
+    "question": "What is normalization in database design and why is it important?",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "ideal_answer": "Normalization is the process of organizing database tables to reduce data redundancy and improve data integrity by dividing large tables into smaller related ones. It follows a series of normal forms (1NF, 2NF, 3NF) with increasingly strict rules. It prevents anomalies during insert, update, and delete operations.",
+    "keywords": ["normalization", "redundancy", "normal forms", "data integrity", "1NF", "2NF", "3NF", "anomalies"]
+  },
+  {
+    "question": "What is an index in SQL and how does it improve query performance?",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "ideal_answer": "An index is a data structure that improves the speed of data retrieval operations on a table, similar to an index in a book. It comes at the cost of additional storage and slower write operations since indexes must be updated. Indexes are typically created on columns frequently used in WHERE clauses or JOINs.",
+    "keywords": ["index", "query performance", "data structure", "B-tree", "storage tradeoff", "read/write performance"]
+  },
+  {
+    "question": "Explain the difference between UNION and UNION ALL.",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "ideal_answer": "UNION combines results from two queries and removes duplicate rows, requiring extra processing. UNION ALL combines results without removing duplicates, making it faster. Use UNION ALL when you know there won't be duplicates or don't care about them.",
+    "keywords": ["UNION", "UNION ALL", "duplicates", "set operations", "query performance"]
+  },
+  {
+    "question": "What are SQL window functions and when would you use them?",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "ideal_answer": "Window functions perform calculations across a set of rows related to the current row without collapsing the result into a single output, unlike GROUP BY. Common examples include ROW_NUMBER(), RANK(), and running totals using SUM() OVER(). They're used for tasks like ranking, moving averages, and comparing rows.",
+    "keywords": ["window function", "OVER clause", "ROW_NUMBER", "RANK", "partition", "running total"]
+  },
+  {
+    "question": "What is a subquery and what are its common use cases?",
+    "category": "SQL",
+    "difficulty": "Medium",
+    "ideal_answer": "A subquery is a query nested inside another query, used to return data that will be used in the main query's condition. They can appear in SELECT, WHERE, or FROM clauses. Common use cases include filtering based on aggregated values or comparing against a computed set of results.",
+    "keywords": ["subquery", "nested query", "correlated subquery", "SELECT", "WHERE clause"]
+  },
+  {
+    "question": "What is the difference between DELETE, TRUNCATE, and DROP?",
+    "category": "SQL",
+    "difficulty": "Easy",
+    "ideal_answer": "DELETE removes specific rows based on a condition and can be rolled back, logging each row deletion. TRUNCATE removes all rows from a table quickly without logging individual rows, and resets identity counters. DROP removes the entire table structure along with its data permanently.",
+    "keywords": ["DELETE", "TRUNCATE", "DROP", "rollback", "table structure", "data removal"]
+  },
+  {
+    "question": "What are ACID properties in database transactions?",
+    "category": "SQL",
+    "difficulty": "Hard",
+    "ideal_answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability, the four properties that guarantee reliable transaction processing. Atomicity ensures a transaction fully completes or fully fails. Consistency ensures data remains valid, Isolation keeps concurrent transactions from interfering, and Durability ensures committed changes persist even after a crash.",
+    "keywords": ["ACID", "atomicity", "consistency", "isolation", "durability", "transactions", "database reliability"]
+  },
+
+  {
+    "question": "What is the difference between supervised and unsupervised learning?",
+    "category": "Machine Learning",
+    "difficulty": "Easy",
+    "ideal_answer": "Supervised learning uses labeled data where the model learns to map inputs to known outputs, such as classification or regression. Unsupervised learning works with unlabeled data to find hidden patterns or groupings, such as clustering. Supervised learning requires labeled training data, unsupervised doesn't.",
+    "keywords": ["supervised learning", "unsupervised learning", "labeled data", "classification", "regression", "clustering"]
+  },
+  {
+    "question": "What is overfitting and how can you prevent it?",
+    "category": "Machine Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "Overfitting occurs when a model learns the training data too well, including its noise, and performs poorly on unseen data. It can be prevented using techniques like cross-validation, regularization, dropout, early stopping, or gathering more training data. A simpler model with fewer parameters can also help.",
+    "keywords": ["overfitting", "regularization", "cross-validation", "dropout", "early stopping", "generalization"]
+  },
+  {
+    "question": "Explain the bias-variance tradeoff.",
+    "category": "Machine Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "Bias refers to error from overly simplistic assumptions in the model, leading to underfitting. Variance refers to error from excessive sensitivity to small fluctuations in training data, leading to overfitting. The goal is to find a balance where both bias and variance are minimized for good generalization.",
+    "keywords": ["bias", "variance", "underfitting", "overfitting", "generalization", "tradeoff"]
+  },
+  {
+    "question": "What is the difference between precision and recall?",
+    "category": "Machine Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "Precision measures the proportion of true positive predictions out of all positive predictions made by the model. Recall measures the proportion of true positives out of all actual positive cases. There's often a tradeoff between the two, and F1-score combines them into a single metric.",
+    "keywords": ["precision", "recall", "true positive", "false positive", "false negative", "F1-score", "classification metrics"]
+  },
+  {
+    "question": "What is cross-validation and why is it used?",
+    "category": "Machine Learning",
+    "difficulty": "Easy",
+    "ideal_answer": "Cross-validation splits data into multiple folds, training the model on some folds and validating on the remaining fold, repeating this across all folds. This gives a more reliable estimate of model performance than a single train-test split. K-fold cross-validation is the most common approach.",
+    "keywords": ["cross-validation", "k-fold", "train-test split", "model evaluation", "generalization"]
+  },
+  {
+    "question": "What is regularization and what are L1 and L2 regularization?",
+    "category": "Machine Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "Regularization adds a penalty term to the loss function to discourage overly complex models and reduce overfitting. L1 regularization (Lasso) adds the absolute value of coefficients, which can shrink some to zero for feature selection. L2 regularization (Ridge) adds the squared value of coefficients, shrinking them smoothly without eliminating them.",
+    "keywords": ["regularization", "L1", "L2", "Lasso", "Ridge", "penalty term", "feature selection"]
+  },
+  {
+    "question": "What is the difference between bagging and boosting?",
+    "category": "Machine Learning",
+    "difficulty": "Hard",
+    "ideal_answer": "Bagging trains multiple models independently in parallel on different random subsets of data and averages their predictions to reduce variance, as in Random Forest. Boosting trains models sequentially, where each new model focuses on correcting the errors of previous ones, as in XGBoost. Boosting typically reduces bias while bagging reduces variance.",
+    "keywords": ["bagging", "boosting", "Random Forest", "XGBoost", "ensemble learning", "variance", "bias"]
+  },
+  {
+    "question": "What is feature scaling and why is it important?",
+    "category": "Machine Learning",
+    "difficulty": "Easy",
+    "ideal_answer": "Feature scaling standardizes the range of independent variables so that no single feature dominates due to differing scales. Common methods include normalization (min-max scaling) and standardization (z-score scaling). It's especially important for distance-based algorithms like KNN and gradient-based algorithms.",
+    "keywords": ["feature scaling", "normalization", "standardization", "min-max", "z-score", "gradient descent"]
+  },
+  {
+    "question": "What is a confusion matrix?",
+    "category": "Machine Learning",
+    "difficulty": "Easy",
+    "ideal_answer": "A confusion matrix is a table used to evaluate classification model performance by showing true positives, true negatives, false positives, and false negatives. It allows calculation of metrics like accuracy, precision, recall, and F1-score. It's especially useful for understanding class-specific performance.",
+    "keywords": ["confusion matrix", "true positive", "true negative", "false positive", "false negative", "classification evaluation"]
+  },
+  {
+    "question": "What is the curse of dimensionality?",
+    "category": "Machine Learning",
+    "difficulty": "Hard",
+    "ideal_answer": "The curse of dimensionality refers to problems that arise when working with high-dimensional data, where data points become sparse and distances between points become less meaningful. This makes models harder to train and more prone to overfitting. Dimensionality reduction techniques like PCA are often used to address it.",
+    "keywords": ["curse of dimensionality", "high-dimensional data", "sparsity", "PCA", "dimensionality reduction"]
+  },
+
+  {
+    "question": "What is the vanishing gradient problem in deep learning?",
+    "category": "Deep Learning",
+    "difficulty": "Hard",
+    "ideal_answer": "The vanishing gradient problem occurs when gradients become extremely small during backpropagation through many layers, causing earlier layers to learn very slowly or stop learning. It's common with activation functions like sigmoid and tanh. Solutions include using ReLU activations, batch normalization, and residual connections.",
+    "keywords": ["vanishing gradient", "backpropagation", "sigmoid", "ReLU", "batch normalization", "residual connections"]
+  },
+  {
+    "question": "What is the difference between a CNN and an RNN?",
+    "category": "Deep Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "CNNs (Convolutional Neural Networks) are designed for spatial data like images, using convolutional filters to detect patterns like edges and textures. RNNs (Recurrent Neural Networks) are designed for sequential data like text or time series, maintaining a hidden state across time steps. CNNs excel at spatial features, RNNs at temporal dependencies.",
+    "keywords": ["CNN", "RNN", "convolution", "sequential data", "hidden state", "spatial features"]
+  },
+  {
+    "question": "What is dropout and how does it prevent overfitting?",
+    "category": "Deep Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "Dropout randomly deactivates a fraction of neurons during each training iteration, forcing the network to not rely too heavily on any single neuron. This encourages the network to learn more robust, generalized features. Dropout is only applied during training, not during inference.",
+    "keywords": ["dropout", "regularization", "overfitting", "neurons", "generalization", "training vs inference"]
+  },
+  {
+    "question": "What is batch normalization and why is it used?",
+    "category": "Deep Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "Batch normalization normalizes the inputs of each layer to have a consistent mean and variance across mini-batches during training. This stabilizes and speeds up training by reducing internal covariate shift, and can also act as a mild regularizer. It's typically applied before the activation function.",
+    "keywords": ["batch normalization", "internal covariate shift", "training stability", "regularization", "mini-batch"]
+  },
+  {
+    "question": "What is the difference between an activation function like ReLU and Sigmoid?",
+    "category": "Deep Learning",
+    "difficulty": "Easy",
+    "ideal_answer": "Sigmoid squashes input values between 0 and 1, but suffers from vanishing gradients for large positive or negative inputs. ReLU outputs the input directly if positive, and zero otherwise, avoiding vanishing gradients and being computationally cheaper. ReLU is the default choice for most hidden layers in modern networks.",
+    "keywords": ["ReLU", "Sigmoid", "activation function", "vanishing gradient", "non-linearity"]
+  },
+  {
+    "question": "What are transformers and why did they replace RNNs in many NLP tasks?",
+    "category": "Deep Learning",
+    "difficulty": "Hard",
+    "ideal_answer": "Transformers use a self-attention mechanism to process all tokens in a sequence simultaneously rather than sequentially, unlike RNNs. This allows for much better parallelization during training and captures long-range dependencies more effectively. Models like BERT and GPT are built on the transformer architecture.",
+    "keywords": ["transformer", "self-attention", "parallelization", "long-range dependencies", "BERT", "GPT"]
+  },
+  {
+    "question": "What is transfer learning?",
+    "category": "Deep Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "Transfer learning involves taking a model pretrained on a large dataset and fine-tuning it on a smaller, task-specific dataset. This saves training time and often improves performance since the model already learned general features. It's widely used in computer vision and NLP with models like ResNet and BERT.",
+    "keywords": ["transfer learning", "pretrained model", "fine-tuning", "feature reuse", "ResNet", "BERT"]
+  },
+  {
+    "question": "What is an autoencoder and what is it used for?",
+    "category": "Deep Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "An autoencoder is a neural network trained to compress input data into a lower-dimensional representation (encoder) and then reconstruct it back (decoder). It's used for dimensionality reduction, anomaly detection, and denoising. The bottleneck layer forces the network to learn the most important features.",
+    "keywords": ["autoencoder", "encoder", "decoder", "dimensionality reduction", "anomaly detection", "bottleneck layer"]
+  },
+  {
+    "question": "What is the difference between epoch, batch, and iteration in neural network training?",
+    "category": "Deep Learning",
+    "difficulty": "Easy",
+    "ideal_answer": "An epoch is one complete pass through the entire training dataset. A batch is a subset of the training data used in one forward/backward pass. An iteration is one update of the model's weights, corresponding to processing one batch, so the number of iterations per epoch equals the dataset size divided by batch size.",
+    "keywords": ["epoch", "batch", "iteration", "training", "weight update", "batch size"]
+  },
+  {
+    "question": "What is gradient descent and what are its common variants?",
+    "category": "Deep Learning",
+    "difficulty": "Medium",
+    "ideal_answer": "Gradient descent is an optimization algorithm that iteratively adjusts model parameters in the direction that minimizes the loss function. Common variants include Stochastic Gradient Descent (SGD), which updates using one sample at a time, and Adam, which combines momentum and adaptive learning rates. Mini-batch gradient descent is the most commonly used in practice.",
+    "keywords": ["gradient descent", "SGD", "Adam", "optimization", "loss function", "learning rate", "mini-batch"]
+  },
+
+  {
+    "question": "What is the difference between stemming and lemmatization in NLP?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Easy",
+    "ideal_answer": "Stemming crudely chops off word endings using rule-based heuristics, which can produce non-real words. Lemmatization uses vocabulary and grammar rules to reduce a word to its proper base form, called a lemma. Lemmatization is more accurate but computationally slower than stemming.",
+    "keywords": ["stemming", "lemmatization", "NLP preprocessing", "lemma", "tokenization"]
+  },
+  {
+    "question": "What are word embeddings and why are they useful?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Medium",
+    "ideal_answer": "Word embeddings are dense vector representations of words that capture semantic relationships, so similar words have similar vectors. Unlike one-hot encoding, embeddings are lower-dimensional and preserve meaning, allowing models to generalize better. Common methods include Word2Vec, GloVe, and contextual embeddings from transformer models.",
+    "keywords": ["word embeddings", "Word2Vec", "GloVe", "semantic similarity", "vector representation", "one-hot encoding"]
+  },
+  {
+    "question": "What is the difference between Haar Cascade and deep learning-based face detection?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Medium",
+    "ideal_answer": "Haar Cascade uses handcrafted features and a cascade of simple classifiers to detect faces quickly but with lower accuracy, especially with varied lighting or angles. Deep learning-based detectors, like those in MediaPipe, use trained neural networks that generalize much better across conditions. Deep learning methods are more accurate but typically require more compute.",
+    "keywords": ["Haar Cascade", "face detection", "deep learning", "MediaPipe", "accuracy", "computational cost"]
+  },
+  {
+    "question": "What is cosine similarity and how is it used in NLP?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Medium",
+    "ideal_answer": "Cosine similarity measures the cosine of the angle between two vectors, producing a value between -1 and 1 that indicates how similar their directions are, regardless of magnitude. In NLP, it's commonly used to compare sentence or document embeddings to measure semantic similarity. A value close to 1 means the texts are highly similar in meaning.",
+    "keywords": ["cosine similarity", "vector embeddings", "semantic similarity", "sentence embeddings", "dot product"]
+  },
+  {
+    "question": "What is the difference between object detection and image classification?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Easy",
+    "ideal_answer": "Image classification assigns a single label to an entire image, identifying what the image contains overall. Object detection identifies multiple objects within an image along with their locations, typically using bounding boxes. Object detection is more complex since it combines classification with localization.",
+    "keywords": ["image classification", "object detection", "bounding box", "localization", "computer vision"]
+  },
+  {
+    "question": "What is prompt engineering and why is it important when working with LLMs?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Medium",
+    "ideal_answer": "Prompt engineering is the practice of carefully crafting input instructions to guide a large language model toward producing more accurate and relevant outputs. Since LLMs are sensitive to phrasing, context, and examples provided, well-designed prompts can significantly improve output quality without retraining the model. Techniques include few-shot examples, clear instructions, and specifying output format.",
+    "keywords": ["prompt engineering", "LLM", "few-shot learning", "context window", "instruction design"]
+  },
+  {
+    "question": "What is the attention mechanism in NLP models?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Hard",
+    "ideal_answer": "The attention mechanism allows a model to weigh the importance of different words in the input sequence when producing each output, rather than treating all words equally. This helps capture long-range dependencies and context more effectively than traditional RNNs. Self-attention, used in transformers, computes attention scores between all pairs of words in a sequence.",
+    "keywords": ["attention mechanism", "self-attention", "transformer", "context", "long-range dependencies"]
+  },
+  {
+    "question": "What is semantic search and how does it differ from keyword search?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Medium",
+    "ideal_answer": "Keyword search matches exact words or phrases between a query and documents, often missing results that use different wording with the same meaning. Semantic search uses embeddings to understand the meaning behind a query and retrieves results based on conceptual similarity, even without exact word matches. This is commonly implemented using vector databases and cosine similarity.",
+    "keywords": ["semantic search", "keyword search", "embeddings", "vector database", "cosine similarity"]
+  },
+  {
+    "question": "What are hallucinations in the context of large language models?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Medium",
+    "ideal_answer": "Hallucinations occur when an LLM generates information that sounds plausible but is factually incorrect or not grounded in the provided context. This happens because LLMs predict likely word sequences rather than verifying facts. Techniques like retrieval-augmented generation (RAG) and careful prompting can help reduce hallucinations.",
+    "keywords": ["hallucination", "LLM", "factual accuracy", "RAG", "grounding", "prompt engineering"]
+  },
+  {
+    "question": "What is temperature in the context of LLM text generation?",
+    "category": "AI/NLP/Computer Vision",
+    "difficulty": "Medium",
+    "ideal_answer": "Temperature is a parameter that controls the randomness of an LLM's output during text generation. A low temperature makes the model more deterministic and focused, favoring the most likely next word, while a high temperature increases diversity and creativity at the cost of coherence. It's typically set between 0 and 1.",
+    "keywords": ["temperature", "LLM sampling", "randomness", "determinism", "text generation", "creativity"]
+  }
+]

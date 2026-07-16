@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+backend/temp/*
+!backend/temp/.gitkeep
+*.wav
+*.mp4
+.streamlit/secrets.toml
+quick_test*.py
+structure.txt
