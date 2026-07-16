@@ -28,24 +28,28 @@ Most interview prep tools only check *what* you say — a keyword match against 
 ## 🖥️ App Screenshots
 
 ### Homepage
-<img width="1872" height="842" alt="MirrorMind Homepage" src="PASTE_YOUR_SCREENSHOT_URL_HERE" />
+<img width="1872" height="842" alt="MirrorMind Homepage" src=<img width="1747" height="895" alt="Screenshot 2026-07-15 165802" src="https://github.com/user-attachments/assets/a1360d32-5cee-4703-81c0-e07f24f22a7e" />
+ />
 
 ### Setup | Live Session
 | Question Setup | Live Camera + Real-Time Metrics |
 |---|---|
-| <img alt="Setup tab" src="PASTE_YOUR_SCREENSHOT_URL_HERE" /> | <img alt="Live Session tab" src="PASTE_YOUR_SCREENSHOT_URL_HERE" /> |
+| <img alt="Setup tab" src="PASTE_YOUR_SCREENSHOT_URL_HERE" /> | <img alt="Live Session tab" src="<img width="1786" height="877" alt="Screenshot 2026-07-15 165539" src="https://github.com/user-attachments/assets/6548b1f6-9555-4d10-ba2f-4ef72c436b73" />
+ /> |
 
 | **Setup** — pick a category, pull a random question from a 50-question bank, start the session | **Live Session** — real-time webcam feed with live emotion, eye contact, and head pose tracking |
 
 ### Results — Communication | Results — Final
 | Communication Metrics + Emotion Timeline | Overall Score + Grounded AI Feedback |
 |---|---|
-| <img alt="Communication results" src="PASTE_YOUR_SCREENSHOT_URL_HERE" /> | <img alt="Final results" src="PASTE_YOUR_SCREENSHOT_URL_HERE" /> |
+| <img alt="Communication results" src="<img width="1851" height="907" alt="Screenshot 2026-07-15 164707" src="https://github.com/user-attachments/assets/82fd25d1-d5ef-4ad8-9735-717e0fac547a" />
+ /> | <img alt="Final results" src="PASTE_YOUR_SCREENSHOT_URL_HERE /> |
 
 | **Communication** — WPM, filler words, pauses, and a full emotion timeline across the session | **Final** — radial overall score plus RAG-grounded strengths, weaknesses, and suggestions |
 
 ### Results — Technical Evaluation
-<img alt="Technical results" src="PASTE_YOUR_SCREENSHOT_URL_HERE" />
+<img alt="Technical results" src="<img width="1791" height="647" alt="Screenshot 2026-07-15 164742" src="https://github.com/user-attachments/assets/ddf8c67f-0db4-4eba-ad95-d11f9788223c" />
+ />
 
 *Similarity score, keyword coverage, and matched/missing keywords — computed via Sentence-BERT cosine similarity, not simple string matching.*
 
