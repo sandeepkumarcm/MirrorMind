@@ -30,83 +30,112 @@ Most interview prep tools only check *what* you say — a keyword match against 
 
 ---
 
-# 🏗️ System Architecture
-
-```text
-                              MirrorMind Architecture
-
-                                   👤 User
-                                      │
-                                      ▼
-                         🖥️ Streamlit Frontend (UI)
-                                      │
-                                      ▼
-                           ⚡ FastAPI Backend API
-                                      │
-                  ┌───────────────────┴───────────────────┐
-                  │                                       │
-                  ▼                                       ▼
-        🎥 Video Processing                      🎙️ Audio Processing
-     OpenCV + MediaPipe Face Mesh           Whisper Speech-to-Text
-                  │                                       │
-                  │                                       ▼
-                  │                           Transcript + Word Timestamps
-        ┌─────────┼─────────┐                          │
-        │         │         │                          │
-        ▼         ▼         ▼                          │
- Emotion      Eye Contact   Head Pose                 │
- DeepFace     Iris Tracking solvePnP                  │
-        │         │         │                          │
-        └─────────┴─────────┘                          │
-                  │                                   │
-                  ▼                                   ▼
-        📈 Communication Analysis        📝 Transcript Analysis
-     • WPM                              • Sentence-BERT
-     • Pause Detection                  • Cosine Similarity
-     • Filler Detection                 • Keyword Coverage
-     • Answer Timer                     • Technical Score
-                  │                                   │
-                  └───────────────────┬───────────────┘
-                                      ▼
-                         🔎 RAG Retrieval Pipeline
-               Sentence-BERT Embeddings + FAISS Index
-                Retrieve Top-3 Relevant Knowledge Chunks
-                                      │
-                                      ▼
-                      🤖 Llama 3 (Groq API)
-            Grounded Feedback • STAR Evaluation
-             Follow-up Questions • JSON Output
-                                      │
-                    ┌─────────────────┴──────────────────┐
-                    ▼                                    ▼
-         📊 Streamlit Dashboard                📄 PDF Report
-     • Communication Metrics               • Transcript
-     • Technical Evaluation                • Scores
-     • Final AI Feedback                   • STAR Evaluation
-     • Emotion Timeline                    • AI Feedback
-```
-
-## 📖 Architecture Overview
-
-MirrorMind follows a modular AI pipeline where the Streamlit frontend communicates with a FastAPI backend. The backend processes webcam video and microphone audio independently before combining their outputs for interview evaluation.
-
-- **Video Processing:** OpenCV captures webcam frames, MediaPipe Face Mesh extracts facial landmarks once per frame, and those landmarks are reused for emotion detection (DeepFace), eye-contact estimation, and head-pose tracking.
-
-- **Audio Processing:** Whisper converts speech into text with word-level timestamps. The transcript is analyzed for speaking pace (WPM), pauses, filler words, and answer duration.
-
-- **Technical Evaluation:** Sentence-BERT computes semantic similarity between the candidate's answer and the ideal answer, while keyword coverage contributes to the technical score.
-
-- **RAG Pipeline:** The interview transcript is embedded using Sentence-BERT and queried against a FAISS vector index built from the 50-question knowledge base. The top-3 most relevant concepts are retrieved and injected into the Llama 3 prompt as grounding context.
-
-- **LLM Feedback:** Llama 3 (via Groq API) generates structured interview feedback, STAR evaluation, strengths, weaknesses, suggestions, and follow-up questions using the retrieved context.
-
-- **Final Output:** The frontend displays communication metrics, technical evaluation, emotion timeline, and grounded AI feedback. A complete interview report is generated as a PDF using ReportLab.
-
 ## 🏗️ System Architecture
 
-<p align="center">
-  <img src="docs/images/architecture.png" alt="MirrorMind Architecture" width="1000"/>
-</p>
+```mermaid
+flowchart TD
+
+    U([👤 User])
+
+    FE["🖥️ Streamlit Frontend (UI)"]
+    BE["⚡ FastAPI Backend API"]
+
+    VP["🎥 Video Processing<br/>OpenCV + MediaPipe Face Mesh"]
+    AP["🎙️ Audio Processing<br/>Whisper Speech-to-Text"]
+
+    EM["😊 Emotion Detection<br/>DeepFace"]
+    EC["👁️ Eye Contact<br/>Iris Tracking"]
+    HP["🧭 Head Pose<br/>solvePnP"]
+
+    TS["📝 Transcript<br/>Word Timestamps"]
+
+    CE["📈 Communication Evaluation<br/>• WPM<br/>• Pause Detection<br/>• Filler Detection<br/>• Answer Timer"]
+
+    TE["🧠 Technical Evaluation<br/>• Sentence-BERT<br/>• Cosine Similarity<br/>• Keyword Coverage<br/>• Technical Score"]
+
+    RAG["🔎 RAG Retrieval Pipeline<br/>Sentence-BERT Embeddings<br/>FAISS Vector Index<br/>Top-3 Relevant Concepts"]
+
+    LLM["🤖 Llama 3 (Groq API)<br/>Grounded Feedback Generation<br/>STAR Evaluation<br/>AI Follow-up Questions<br/>Structured JSON Output"]
+
+    DASH["📊 Streamlit Dashboard<br/>Communication<br/>Technical<br/>Final Results"]
+
+    PDF["📄 PDF Report<br/>Transcript<br/>Scores<br/>STAR Evaluation<br/>AI Feedback"]
+
+    U --> FE
+    FE --> BE
+
+    BE --> VP
+    BE --> AP
+
+    VP --> EM
+    VP --> EC
+    VP --> HP
+
+    AP --> TS
+
+    EM --> CE
+    EC --> CE
+    HP --> CE
+
+    TS --> TE
+
+    CE --> RAG
+    TE --> RAG
+
+    RAG --> LLM
+
+    LLM --> DASH
+    LLM --> PDF
+```
+
+### 📖 Architecture Overview
+
+MirrorMind is a multimodal AI interview coach built using **Streamlit** and **FastAPI**. The system captures webcam video and microphone audio simultaneously, evaluates both communication and technical performance, retrieves relevant interview concepts using a RAG pipeline, and generates grounded AI feedback before presenting results in an interactive dashboard and downloadable PDF report.
+
+#### 🎥 Video Processing
+- OpenCV captures webcam frames.
+- MediaPipe Face Mesh extracts facial landmarks once per frame.
+- The same landmarks are reused for:
+  - DeepFace emotion detection
+  - Eye-contact estimation
+  - Head-pose tracking
+
+#### 🎙️ Audio Processing
+- Whisper converts speech into text with word-level timestamps.
+- The transcript is analyzed for:
+  - Speaking pace (WPM)
+  - Pause detection
+  - Filler words
+  - Answer duration
+
+#### 🧠 Technical Evaluation
+- Sentence-BERT computes semantic similarity between the candidate's answer and the ideal answer.
+- Keyword coverage is combined with cosine similarity to calculate the technical score.
+
+#### 🔎 Retrieval-Augmented Generation (RAG)
+- The interview transcript is embedded using Sentence-BERT.
+- FAISS retrieves the top-3 most relevant concepts from the 50-question knowledge base.
+- Retrieved context is injected into the Llama 3 prompt to generate grounded feedback.
+
+#### 🤖 AI Feedback
+Llama 3 (via Groq API) generates:
+- Grounded interview feedback
+- STAR evaluation
+- AI follow-up questions
+- Structured JSON output
+
+#### 📊 Final Output
+The Streamlit dashboard presents:
+- Communication Evaluation
+- Technical Evaluation
+- Final Results
+- Emotion Timeline
+
+A ReportLab-generated PDF includes:
+- Transcript
+- Communication & Technical Scores
+- STAR Evaluation
+- Grounded AI Feedback
 
 ## 🖥️ App Screenshots
 
