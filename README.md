@@ -25,6 +25,89 @@ Most interview prep tools only check *what* you say — a keyword match against 
 
 ---
 
+
+
+
+---
+
+# 🏗️ System Architecture
+
+```text
+                              MirrorMind Architecture
+
+                                   👤 User
+                                      │
+                                      ▼
+                         🖥️ Streamlit Frontend (UI)
+                                      │
+                                      ▼
+                           ⚡ FastAPI Backend API
+                                      │
+                  ┌───────────────────┴───────────────────┐
+                  │                                       │
+                  ▼                                       ▼
+        🎥 Video Processing                      🎙️ Audio Processing
+     OpenCV + MediaPipe Face Mesh           Whisper Speech-to-Text
+                  │                                       │
+                  │                                       ▼
+                  │                           Transcript + Word Timestamps
+        ┌─────────┼─────────┐                          │
+        │         │         │                          │
+        ▼         ▼         ▼                          │
+ Emotion      Eye Contact   Head Pose                 │
+ DeepFace     Iris Tracking solvePnP                  │
+        │         │         │                          │
+        └─────────┴─────────┘                          │
+                  │                                   │
+                  ▼                                   ▼
+        📈 Communication Analysis        📝 Transcript Analysis
+     • WPM                              • Sentence-BERT
+     • Pause Detection                  • Cosine Similarity
+     • Filler Detection                 • Keyword Coverage
+     • Answer Timer                     • Technical Score
+                  │                                   │
+                  └───────────────────┬───────────────┘
+                                      ▼
+                         🔎 RAG Retrieval Pipeline
+               Sentence-BERT Embeddings + FAISS Index
+                Retrieve Top-3 Relevant Knowledge Chunks
+                                      │
+                                      ▼
+                      🤖 Llama 3 (Groq API)
+            Grounded Feedback • STAR Evaluation
+             Follow-up Questions • JSON Output
+                                      │
+                    ┌─────────────────┴──────────────────┐
+                    ▼                                    ▼
+         📊 Streamlit Dashboard                📄 PDF Report
+     • Communication Metrics               • Transcript
+     • Technical Evaluation                • Scores
+     • Final AI Feedback                   • STAR Evaluation
+     • Emotion Timeline                    • AI Feedback
+```
+
+## 📖 Architecture Overview
+
+MirrorMind follows a modular AI pipeline where the Streamlit frontend communicates with a FastAPI backend. The backend processes webcam video and microphone audio independently before combining their outputs for interview evaluation.
+
+- **Video Processing:** OpenCV captures webcam frames, MediaPipe Face Mesh extracts facial landmarks once per frame, and those landmarks are reused for emotion detection (DeepFace), eye-contact estimation, and head-pose tracking.
+
+- **Audio Processing:** Whisper converts speech into text with word-level timestamps. The transcript is analyzed for speaking pace (WPM), pauses, filler words, and answer duration.
+
+- **Technical Evaluation:** Sentence-BERT computes semantic similarity between the candidate's answer and the ideal answer, while keyword coverage contributes to the technical score.
+
+- **RAG Pipeline:** The interview transcript is embedded using Sentence-BERT and queried against a FAISS vector index built from the 50-question knowledge base. The top-3 most relevant concepts are retrieved and injected into the Llama 3 prompt as grounding context.
+
+- **LLM Feedback:** Llama 3 (via Groq API) generates structured interview feedback, STAR evaluation, strengths, weaknesses, suggestions, and follow-up questions using the retrieved context.
+
+- **Final Output:** The frontend displays communication metrics, technical evaluation, emotion timeline, and grounded AI feedback. A complete interview report is generated as a PDF using ReportLab.
+
+## 🏗️ System Architecture
+
+<p align="center">
+  <img src="docs/images/architecture.png" alt="MirrorMind Architecture" width="1000"/>
+</p>
+
 ## 🖥️ App Screenshots
 
 ### Homepage
