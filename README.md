@@ -1,4 +1,7 @@
-# MirrorMind — AI Interview Coach with RAG-Grounded Feedback
+<div align="center">
+
+# MirrorMind
+### AI Interview Coach with RAG-Grounded Feedback
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
@@ -6,9 +9,13 @@
 [![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com)
 [![RAG](https://img.shields.io/badge/RAG-FAISS%20%2B%20Sentence--BERT-6C63FF?style=for-the-badge)](https://github.com/facebookresearch/faiss)
 
-> Watches you through the webcam, listens to your answer, and gives you grounded interview feedback — not a keyword match against a model answer.
+*Watches you through the webcam, listens to your answer, and gives you grounded interview feedback — not a keyword match against a model answer.*
 
-**[Watch the demo](https://www.youtube.com/watch?v=LktfbZ4AaR0)** · Fully containerized and verified working end-to-end via Docker. Public cloud demo in progress — see [Quick Start](#quick-start) to run it locally in the meantime.
+**[▶ Watch the Demo](https://www.youtube.com/watch?v=LktfbZ4AaR0)**
+
+Fully containerized and verified working end-to-end via Docker. Public cloud demo in progress — see [Quick Start](#quick-start) to run it locally in the meantime.
+
+</div>
 
 ---
 
@@ -171,6 +178,7 @@ overall_score = 0.5 × technical_score + 0.5 × communication_score
 
 ## Project Structure
 
+```
 MirrorMind/
 ├── backend/
 │   ├── main.py              # FastAPI entrypoint
@@ -196,6 +204,9 @@ MirrorMind/
 ├── docs/
 ├── .env.example
 └── requirements.txt
+```
+
+---
 
 ## Quick Start
 
@@ -266,9 +277,13 @@ Both services start inside a single container, built and verified from a clean i
 
 ---
 
+<div align="center">
+
 ## Author
 
 **Sandeepkumar**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/sandeepkumarcm/)
 [![GitHub](https://img.shields.io/badge/GitHub-sandeepkumarcm-black?style=flat&logo=github)](https://github.com/sandeepkumarcm)
+
+</div>
