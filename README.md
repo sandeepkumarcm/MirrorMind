@@ -19,6 +19,16 @@ Fully containerized and verified working end-to-end via Docker. Public cloud dem
 
 ---
 
+## Key Highlights
+
+- 🎥 Real-time webcam and microphone interview analysis
+- 🧠 RAG-grounded feedback using Sentence-BERT + FAISS + Llama 3
+- 📊 Communication and technical scoring dashboard
+- 📄 PDF interview report generation
+- 🐳 Dockerized end-to-end deployment
+
+---
+
 ## The Problem
 
 Most interview prep tools check *what* you say — a keyword match against a model answer. They miss *how* you come across: eye contact, pacing, hesitation, rambling. MirrorMind analyzes face, voice, and words together, then grounds its feedback in a real knowledge base instead of generic AI platitudes.
@@ -181,20 +191,20 @@ overall_score = 0.5 × technical_score + 0.5 × communication_score
 ```
 MirrorMind/
 ├── backend/
-│   ├── main.py              # FastAPI entrypoint
-│   ├── routes/               # Video, audio, interview, evaluation, report APIs
-│   ├── core/                 # config.py, state_manager.py
-│   ├── schemas/               # Pydantic request/response models
-│   ├── video/                 # Face detection, emotion, eye contact, head pose
-│   ├── audio/                 # Whisper transcription, WPM, pause/filler detection
-│   ├── nlp/                   # Embeddings, similarity scoring, FAISS vector store
-│   ├── llm/                   # Groq client, RAG-enhanced feedback, STAR evaluator
-│   ├── data/                  # questions.json — question bank
-│   └── reports/               # PDF report generation (ReportLab)
+│   ├── main.py            # FastAPI entrypoint
+│   ├── routes/             # Video, audio, interview, evaluation, report APIs
+│   ├── core/               # config.py, state_manager.py
+│   ├── schemas/            # Pydantic request/response models
+│   ├── video/               # Face detection, emotion, eye contact, head pose
+│   ├── audio/               # Whisper transcription, WPM, pause/filler detection
+│   ├── nlp/                 # Embeddings, similarity scoring, FAISS vector store
+│   ├── llm/                 # Groq client, RAG-enhanced feedback, STAR evaluator
+│   ├── data/                # questions.json — question bank
+│   └── reports/             # PDF report generation (ReportLab)
 │
 ├── frontend/
-│   ├── app.py                # Streamlit entrypoint
-│   └── components/            # dashboard.py, charts.py, styles.py
+│   ├── app.py              # Streamlit entrypoint
+│   └── components/          # dashboard.py, charts.py, styles.py
 │
 ├── docker/
 │   ├── Dockerfile
