@@ -124,17 +124,18 @@ This isn't a "RAG" label on top of a normal LLM call — it's a real retrieval l
 
 ## Scoring Formulas
 
+```
 communication_score = (
-0.35 × eye_contact_component +
-0.35 × wpm_component +
-0.15 × filler_penalty_component +
-0.15 × pause_penalty_component
+   0.35 × eye_contact_component +
+   0.35 × wpm_component +
+   0.15 × filler_penalty_component +
+   0.15 × pause_penalty_component
 ) × 100
 
 technical_score = 0.6 × similarity_pct + 0.4 × keyword_coverage_pct
 
 overall_score = 0.5 × technical_score + 0.5 × communication_score
-
+```
 
 `wpm_component` peaks at the ideal 110–150 WPM midpoint (130) and decays linearly with drift. Filler and pause penalties decay linearly up to a cap of 10 occurrences. All weights are configurable constants in `charts.py`.
 
@@ -170,26 +171,27 @@ overall_score = 0.5 × technical_score + 0.5 × communication_score
 
 ## Project Structure
 
+```
 MirrorMind/
   backend/
-    main.py            FastAPI entrypoint
-    routes/             video, audio, interview, evaluation, report routes
-    core/               config.py, state_manager.py
-    schemas/            Pydantic request/response models
-    video/              webcam, face detection/landmarks, emotion,
-                         eye contact, head pose, emotion smoothing
-    audio/               recorder, Whisper transcription, WPM,
-                         pause detection, filler words, answer timer
-    nlp/                embeddings.py, similarity_score.py, vector_store.py (FAISS)
-    llm/                groq_client, followup_question, feedback_generator
-                         (RAG-enhanced), star_evaluator
-    data/               questions.json - question bank
-    reports/            pdf_generator.py (ReportLab)
+    main.py              FastAPI entrypoint
+    routes/               video, audio, interview, evaluation, report routes
+    core/                 config.py, state_manager.py
+    schemas/              Pydantic request/response models
+    video/                webcam, face detection/landmarks, emotion,
+                           eye contact, head pose, emotion smoothing
+    audio/                recorder, Whisper transcription, WPM,
+                           pause detection, filler words, answer timer
+    nlp/                  embeddings.py, similarity_score.py, vector_store.py (FAISS)
+    llm/                  groq_client, followup_question, feedback_generator
+                           (RAG-enhanced), star_evaluator
+    data/                 questions.json - question bank
+    reports/               pdf_generator.py (ReportLab)
     utils/
 
   frontend/
-    app.py              Streamlit entrypoint
-    components/         dashboard.py, charts.py, styles.py
+    app.py                Streamlit entrypoint
+    components/            dashboard.py, charts.py, styles.py
 
   docker/
     Dockerfile
@@ -200,7 +202,7 @@ MirrorMind/
   .env.example
   .gitignore
   requirements.txt
-
+```
 
 ---
 
