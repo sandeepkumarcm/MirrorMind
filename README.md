@@ -171,35 +171,35 @@ overall_score = 0.5 × technical_score + 0.5 × communication_score
 ## Project Structure
 
 MirrorMind/
-├── backend/
-│ ├── main.py # FastAPI entrypoint
-│ ├── routes/ # video, audio, interview, evaluation, report routes
-│ ├── core/ # config.py, state_manager.py
-│ ├── schemas/ # Pydantic request/response models
-│ ├── video/ # webcam, face detection/landmarks, emotion,
-│ │ # eye contact, head pose, emotion smoothing
-│ ├── audio/ # recorder, Whisper transcription, WPM,
-│ │ # pause detection, filler words, answer timer
-│ ├── nlp/ # embeddings.py, similarity_score.py, vector_store.py (FAISS)
-│ ├── llm/ # groq_client, followup_question, feedback_generator
-│ │ # (RAG-enhanced), star_evaluator
-│ ├── data/ # questions.json — question bank
-│ ├── reports/ # pdf_generator.py (ReportLab)
-│ └── utils/
-│
-├── frontend/
-│ ├── app.py # Streamlit entrypoint
-│ └── components/ # dashboard.py, charts.py, styles.py
-│
-├── docker/
-│ ├── Dockerfile
-│ └── docker-compose.yml
-│
-├── tests/
-├── docs/
-├── .env.example
-├── .gitignore
-└── requirements.txt
+  backend/
+    main.py            FastAPI entrypoint
+    routes/             video, audio, interview, evaluation, report routes
+    core/               config.py, state_manager.py
+    schemas/            Pydantic request/response models
+    video/              webcam, face detection/landmarks, emotion,
+                         eye contact, head pose, emotion smoothing
+    audio/               recorder, Whisper transcription, WPM,
+                         pause detection, filler words, answer timer
+    nlp/                embeddings.py, similarity_score.py, vector_store.py (FAISS)
+    llm/                groq_client, followup_question, feedback_generator
+                         (RAG-enhanced), star_evaluator
+    data/               questions.json - question bank
+    reports/            pdf_generator.py (ReportLab)
+    utils/
+
+  frontend/
+    app.py              Streamlit entrypoint
+    components/         dashboard.py, charts.py, styles.py
+
+  docker/
+    Dockerfile
+    docker-compose.yml
+
+  tests/
+  docs/
+  .env.example
+  .gitignore
+  requirements.txt
 
 
 ---
