@@ -171,10 +171,6 @@ overall_score = 0.5 × technical_score + 0.5 × communication_score
 
 ## Project Structure
 
-```
-## Project Structure
-
-```
 MirrorMind/
 ├── backend/
 │   ├── main.py              # FastAPI entrypoint
@@ -200,10 +196,6 @@ MirrorMind/
 ├── docs/
 ├── .env.example
 └── requirements.txt
-```
-```
-
----
 
 ## Quick Start
 
